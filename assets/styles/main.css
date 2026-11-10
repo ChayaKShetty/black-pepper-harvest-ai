@@ -1,0 +1,565 @@
+/* ==========================================================================
+   Pepper Harvest AI - Modern Agricultural Technology Design System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Brand Palette */
+    --primary: #0F3E26;           /* Deep Forest Evergreen */
+    --primary-light: #185A37;     /* Vibrant Forest */
+    --primary-soft: #E9F4EE;      /* Soft Forest Mist */
+    --secondary: #2E8B57;         /* SeaGreen / Plant Leaf */
+    --secondary-light: #44A66E;   /* Young Foliage */
+    --accent: #E5A93C;            /* Warm Ripe Amber */
+    --accent-light: #FFF4DC;      /* Pale Amber Tint */
+    --accent-dark: #B57C18;       /* Deep Amber Bronze */
+    
+    /* Neutrals & Surfaces */
+    --bg-page: #F6F8F5;           /* Off-white Agricultural Canvas */
+    --bg-card: #FFFFFF;           /* Crisp White Card */
+    --bg-surface: #FAFCFA;        /* Subtle Raised Surface */
+    --border-light: #E2E8E3;      /* Crisp Light Divider */
+    --border-subtle: #EDF2EE;     /* Ultra-soft Divider */
+    --border-focus: #2E8B57;      /* Focus Emerald Ring */
+    
+    /* Typography */
+    --text-primary: #19271E;      /* Deep Slate Charcoal */
+    --text-secondary: #4A5B50;    /* Muted Slate */
+    --text-muted: #718478;        /* Soft Caption Gray */
+    --text-inverse: #FFFFFF;      /* Clean White */
+
+    /* Status Colors */
+    --status-prime: #2ECC71;      /* Harvest Ready Green */
+    --status-prime-bg: #EBFBF2;
+    --status-early: #F39C12;      /* Early Ripe Amber */
+    --status-early-bg: #FEF9E7;
+    --status-immature: #E67E22;   /* Immature Orange */
+    --status-immature-bg: #FDF4EB;
+
+    /* Elevation & Shadows */
+    --shadow-xs: 0 1px 3px rgba(15, 62, 38, 0.04);
+    --shadow-sm: 0 2px 6px rgba(15, 62, 38, 0.05);
+    --shadow-md: 0 6px 18px rgba(15, 62, 38, 0.08);
+    --shadow-lg: 0 14px 34px rgba(15, 62, 38, 0.12);
+    --shadow-hover: 0 10px 24px rgba(15, 62, 38, 0.11);
+    
+    /* Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 22px;
+    --radius-pill: 9999px;
+}
+
+/* --------------------------------------------------------------------------
+   Global Typography & Layout
+   -------------------------------------------------------------------------- */
+html, body, [class*="css"], .stApp {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    background-color: var(--bg-page) !important;
+    color: var(--text-primary) !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.main .block-container {
+    padding-top: 1.6rem !important;
+    padding-bottom: 4rem !important;
+    max-width: 1260px !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 700 !important;
+    color: var(--primary) !important;
+    letter-spacing: -0.02em !important;
+}
+
+h1 {
+    font-size: 2.1rem !important;
+    font-weight: 800 !important;
+}
+
+h2 {
+    font-size: 1.5rem !important;
+    font-weight: 750 !important;
+}
+
+h3 {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+}
+
+p, span, label, li {
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #EDF2EE;
+}
+::-webkit-scrollbar-thumb {
+    background: #B6CBBF;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #8FAEA0;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.hero-banner {
+    background: linear-gradient(135deg, #0B331F 0%, #114429 35%, #1B5E39 70%, #287B4C 100%);
+    border-radius: var(--radius-xl);
+    padding: 38px 44px;
+    color: #FFFFFF;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 26px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-banner::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(229, 169, 60, 0.18) 0%, rgba(229, 169, 60, 0) 70%);
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.hero-banner h1 {
+    color: #FFFFFF !important;
+    font-size: 2.35rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 10px !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.2;
+}
+
+.hero-banner p {
+    color: #E2EFE7 !important;
+    font-size: 1.05rem !important;
+    max-width: 860px;
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(229, 169, 60, 0.22);
+    border: 1px solid rgba(229, 169, 60, 0.6);
+    color: #FFE6A8;
+    font-size: 0.76rem;
+    font-weight: 750;
+    padding: 5px 14px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    backdrop-filter: blur(4px);
+}
+
+/* --------------------------------------------------------------------------
+   Metric & KPI Cards
+   -------------------------------------------------------------------------- */
+.metric-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 22px 20px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--secondary-light);
+}
+
+.metric-card .metric-val {
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 8px 0;
+    letter-spacing: -0.03em;
+}
+
+.metric-card .metric-lbl {
+    font-size: 0.78rem;
+    font-weight: 750;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+/* --------------------------------------------------------------------------
+   Feature Cards (Homepage)
+   -------------------------------------------------------------------------- */
+.feature-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 26px 22px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-card:hover {
+    border-color: var(--secondary);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+}
+
+.feature-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, #EBF5EF 0%, #D8EDE0 100%);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+    border: 1px solid rgba(46, 139, 87, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   Harvest Verdict Box
+   -------------------------------------------------------------------------- */
+.verdict-box {
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    margin: 20px 0;
+    border-left: 6px solid var(--primary);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.verdict-box.prime {
+    border-left-color: var(--status-prime);
+    background: linear-gradient(90deg, #F0FCF5 0%, #FFFFFF 60%);
+    border-top: 1px solid rgba(46, 204, 113, 0.2);
+    border-right: 1px solid rgba(46, 204, 113, 0.2);
+    border-bottom: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+.verdict-box.early {
+    border-left-color: var(--status-early);
+    background: linear-gradient(90deg, #FFFDF3 0%, #FFFFFF 60%);
+    border-top: 1px solid rgba(243, 156, 18, 0.2);
+    border-right: 1px solid rgba(243, 156, 18, 0.2);
+    border-bottom: 1px solid rgba(243, 156, 18, 0.2);
+}
+
+.verdict-box.immature {
+    border-left-color: var(--status-immature);
+    background: linear-gradient(90deg, #FEF7EE 0%, #FFFFFF 60%);
+    border-top: 1px solid rgba(230, 126, 34, 0.2);
+    border-right: 1px solid rgba(230, 126, 34, 0.2);
+    border-bottom: 1px solid rgba(230, 126, 34, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   Pill Badges & Tags
+   -------------------------------------------------------------------------- */
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.74rem;
+    font-weight: 750;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.badge-pill-green {
+    background: #E8F5EE;
+    color: #125531;
+    border: 1px solid #369455;
+}
+
+.badge-pill-amber {
+    background: #FEF9E7;
+    color: #7D6608;
+    border: 1px solid #F9E79F;
+}
+
+/* --------------------------------------------------------------------------
+   Guide, Method & History Cards
+   -------------------------------------------------------------------------- */
+.guide-card, .history-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    padding: 24px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.22s ease;
+}
+
+.guide-card:hover, .history-card:hover {
+    border-color: var(--secondary);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+/* Pulse Status Dot */
+.status-dot-pulse {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: var(--status-prime);
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+    animation: pulse-green 2s infinite;
+    margin-right: 6px;
+}
+
+@keyframes pulse-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(46, 204, 113, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Streamlit Native Overrides & Polishing
+   -------------------------------------------------------------------------- */
+
+/* Buttons */
+.stButton > button {
+    border-radius: var(--radius-md) !important;
+    font-weight: 650 !important;
+    font-size: 0.94rem !important;
+    padding: 0.55rem 1.25rem !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    border: 1px solid var(--border-light) !important;
+    background: #FFFFFF !important;
+    color: var(--primary) !important;
+    box-shadow: var(--shadow-xs) !important;
+}
+
+.stButton > button:hover {
+    background: #F4FAF6 !important;
+    border-color: var(--secondary) !important;
+    color: var(--primary) !important;
+    box-shadow: var(--shadow-sm) !important;
+    transform: translateY(-1px);
+}
+
+.stButton > button:active {
+    transform: translateY(0);
+}
+
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #0F3E26 0%, #1A5C37 100%) !important;
+    border-color: #0F3E26 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(15, 62, 38, 0.25) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    background: linear-gradient(135deg, #155032 0%, #237446 100%) !important;
+    border-color: #155032 !important;
+    box-shadow: 0 6px 18px rgba(15, 62, 38, 0.35) !important;
+    transform: translateY(-2px);
+}
+
+/* Download Buttons */
+.stDownloadButton > button {
+    border-radius: var(--radius-md) !important;
+    font-weight: 650 !important;
+    font-size: 0.92rem !important;
+    border: 1px solid #CFDFD4 !important;
+    background: #FAFCFA !important;
+    color: var(--primary) !important;
+    transition: all 0.2s ease !important;
+}
+
+.stDownloadButton > button:hover {
+    background: #EAF5EF !important;
+    border-color: var(--secondary) !important;
+    color: var(--primary) !important;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm) !important;
+}
+
+/* Sidebar Custom Styling */
+[data-testid="stSidebar"] {
+    background: #FFFFFF !important;
+    border-right: 1px solid var(--border-light) !important;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.02) !important;
+}
+
+[data-testid="stSidebar"] .block-container {
+    padding-top: 2rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+}
+
+/* Sidebar Radio Pills */
+[data-testid="stSidebar"] [data-testid="stRadio"] label {
+    background: #FFFFFF;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    padding: 10px 14px !important;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.18s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+[data-testid="stSidebar"] [data-testid="stRadio"] label:hover {
+    background: #F4FAF6;
+    color: var(--primary);
+    border-color: #D3E8DC;
+}
+
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-checked="true"] {
+    background: #E8F4EE !important;
+    color: var(--primary) !important;
+    border-color: #369455 !important;
+    font-weight: 750 !important;
+    box-shadow: var(--shadow-xs);
+}
+
+/* Tabs */
+button[data-baseweb="tab"] {
+    font-weight: 650 !important;
+    font-size: 0.96rem !important;
+    padding: 11px 20px !important;
+    border-radius: var(--radius-md) var(--radius-md) 0 0 !important;
+    color: var(--text-muted) !important;
+    transition: all 0.2s ease !important;
+}
+
+button[data-baseweb="tab"]:hover {
+    color: var(--primary) !important;
+    background: rgba(46, 139, 87, 0.05) !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: var(--primary) !important;
+    font-weight: 750 !important;
+    border-bottom: 3px solid var(--primary) !important;
+}
+
+/* Expanders */
+.streamlit-expanderHeader {
+    background: #FFFFFF !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 14px 18px !important;
+    font-weight: 700 !important;
+    color: var(--primary) !important;
+    transition: all 0.2s ease !important;
+}
+
+.streamlit-expanderHeader:hover {
+    border-color: var(--secondary) !important;
+    background: #F8FCF9 !important;
+}
+
+[data-testid="stExpander"] {
+    border: none !important;
+    margin-bottom: 12px;
+}
+
+/* File Uploader */
+[data-testid="stFileUploader"] {
+    border-radius: var(--radius-lg);
+    padding: 8px;
+    background: #FAFCFA;
+    border: 1px dashed #B6D7C2;
+    transition: all 0.2s ease;
+}
+
+[data-testid="stFileUploader"]:hover {
+    border-color: var(--secondary);
+    background: #F3FAF5;
+}
+
+/* Chat Messages */
+[data-testid="stChatMessage"] {
+    border-radius: var(--radius-lg) !important;
+    padding: 16px 20px !important;
+    margin-bottom: 14px !important;
+    box-shadow: var(--shadow-xs) !important;
+    border: 1px solid var(--border-light) !important;
+}
+
+[data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-user"]) {
+    background: #FFFFFF !important;
+}
+
+[data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) {
+    background: #F5FAF7 !important;
+    border-left: 4px solid var(--secondary) !important;
+}
+
+/* Inputs & Selectboxes */
+.stTextInput > div > div > input,
+.stSelectbox > div > div,
+.stTextArea > div > div > textarea {
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--border-light) !important;
+    background: #FFFFFF !important;
+    font-size: 0.94rem !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+    border-color: var(--secondary) !important;
+    box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.2) !important;
+}
+
+/* Horizontal Rule Divider */
+hr {
+    border: 0 !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent 0%, #D8E5DC 50%, transparent 100%) !important;
+    margin: 28px 0 !important;
+}
+
+/* Image Captions */
+[data-testid="stImage"] figcaption {
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    color: var(--text-muted) !important;
+    text-align: center !important;
+    margin-top: 6px !important;
+}
