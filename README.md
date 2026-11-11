@@ -1,11 +1,4 @@
 # 🌿 Pepper Harvest AI — Black Pepper Harvest Readiness Web Application
-
-> **Final-Year Engineering Project**  
-> **Application Name:** Pepper Harvest AI  
-> **Project Title:** Black Pepper Harvest Readiness AI  
-> **Computer Vision Model:** YOLO26 Nano (Roboflow Hosted TRT GPU Deployment)  
-> **Agronomic Conversational AI:** Google Gemini (`gemini-flash-lite-latest` / `gemini-3.8-flash`)
-
 ---
 
 ## 📌 Project Overview
@@ -58,7 +51,7 @@ By evaluating field photographs and video streams through a trained **YOLO26 Nan
 - **Primary:** `#174D32` (Deep Forest Green)
 - **Secondary:** `#3D8B50` (Leaf Green)
 - **Accent:** `#E8B54A` (Warm Golden Amber)
-- **Background:** `#F7F8F3` (Soft Natural Off-White)
+- **Background:** ` #000000' (Pure Black)
 - **Text:** `#202923` (Charcoal Slate)
 - **Matured Bounding Box:** `#2ECC71` / `#3D8B50` (Vibrant Green)
 - **Immatured Bounding Box:** `#E8B54A` / `#F39C12` (Amber)
