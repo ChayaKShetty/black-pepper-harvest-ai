@@ -98,11 +98,28 @@ def render_image_detection(rf_service: RoboflowService):
 
     if input_method == "📁 Upload from Device (File / Gallery)":
         uploaded_file = st.file_uploader(
-            "Upload black pepper spike photograph (JPG, JPEG, PNG)",
-            type=["jpg", "jpeg", "png"],
-            key="img_file_uploader",
-            help="For best detection, take a clear photo of pepper vine spikes with adequate lighting.",
+        "Upload black pepper spike photograph from phone or laptop",
+        type=None,
+        key="img_file_uploader",
+        max_upload_size=200,
+        help="Select a JPG, JPEG, PNG or WEBP photograph from your phone gallery or laptop."
+)
+
+if uploaded_file is not None:
+    try:
+        image_to_process = load_uploaded_image(uploaded_file)
+        image_filename = uploaded_file.name
+
+        st.success("Image uploaded successfully!")
+        
+    except Exception as e:
+        image_to_process = None
+        st.error(
+            "Unable to read this image. "
+            "Please select a JPG, JPEG or PNG photograph. "
+            f"Details: {e}"
         )
+
         if uploaded_file is not None:
             try:
                 image_to_process = Image.open(uploaded_file)
