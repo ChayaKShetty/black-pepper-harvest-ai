@@ -22,6 +22,15 @@ from modules.image_processing import (
 from modules.report_generator import generate_pdf_report, generate_csv_report
 from modules.history_manager import add_history_entry
 
+def load_uploaded_image(uploaded_file):
+    """Load phone or laptop images and correct camera orientation."""
+    image_bytes = uploaded_file.getvalue()
+
+    with Image.open(BytesIO(image_bytes)) as img:
+        img.load()
+        corrected_image = ImageOps.exif_transpose(img)
+        return corrected_image.convert("RGB")
+
 
 def render_detect_page():
     st.markdown("""
