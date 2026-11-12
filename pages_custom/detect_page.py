@@ -5,7 +5,8 @@ Supports both Image-based and Video-based detection using real Roboflow YOLO26 N
 
 import os
 import streamlit as st
-from PIL import Image
+from PIL import Image, ImageOps
+from io import BytesIO
 import pandas as pd
 
 from modules.roboflow_service import RoboflowService
