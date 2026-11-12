@@ -7,6 +7,7 @@ import os
 import streamlit as st
 from PIL import Image, ImageOps
 from io import BytesIO
+import pandas as pd
 
 from modules.roboflow_service import RoboflowService
 from modules.video_detection import VideoDetectionService
@@ -73,23 +74,23 @@ def render_detect_page():
 def render_image_detection(rf_service: RoboflowService):
     st.markdown("### Image-Based Spike Inspection")
 
-    with st.expander(
-        "📷 Visual Maturity Reference Guide (Matured vs. Immatured Spikes)",
-        expanded=False,
-    ):
-        st.markdown(
-            "Compare your field spikes with this scientific maturity reference:"
-        )
+    with st.expander("📷 Visual Maturity Reference Guide (Matured vs. Immatured Spikes)", expanded=False):
+        st.markdown("Compare your field spikes with this scientific maturity reference:")
         ref_c1, ref_c2 = st.columns(2)
-
         with ref_c1:
-            ref_p1 = os.path.join(
-                os.path.dirname(os.path.dirname(__file__)),
-                "assets", "images", "guide", "berry_ripening.jpg",
-            )
+            ref_p1 = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "images", "guide", "berry_ripening.jpg")
             if os.path.exists(ref_p1):
-                st.image(
-                    ref_p1,
-                    caption="🟢 Matured: 1–2 Berries Turn Yellow/Orange (Ready for Harvest)",
-                    use_container_width=True,
-                )
+                st.image(ref_p1, caption="🟢 Matured: 1–2 Berries Turn Yellow/Orange (Ready for Harvest)", width="stretch")
+        with ref_c2:
+            ref_p2 = os.path.join(os.path.dirname(os.path.dirname(__file__)), "sample_images", "sample_spikes_1.jpg")
+            if os.path.exists(ref_p2):
+                st.image(ref_p2, caption="🟡 Immatured: Uniformly Green Spikes (Allow Further Ripening)", width="stretch")
+
+    input_method = st.radio(
+        "Choose Image Input Method:",
+        ["📁 Upload from Device (File / Gallery)", "📷 Camera Capture", "🌿 Select Sample Plantation Photo"],
+        horizontal=True,
+        key="img_input_radio",
+    )
+
+    image_to_process = None
