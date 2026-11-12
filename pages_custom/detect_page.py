@@ -131,7 +131,8 @@ if uploaded_file is not None:
         camera_image = st.camera_input("Capture pepper spikes photo using device camera", key="img_camera_input")
         if camera_image is not None:
             try:
-                image_to_process = Image.open(camera_image)
+                
+                image_to_process = load_uploaded_image(camera_image)
                 image_filename = "camera_capture.jpg"
             except Exception as e:
                 st.error(f"Failed to read camera capture: {e}")
